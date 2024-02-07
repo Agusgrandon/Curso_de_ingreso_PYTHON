@@ -40,7 +40,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        #ingreso
+        nombre = self.txt_nombre.get()
+        edad = self.txt_edad.get() #(aca no se puede poner int, tira error, se pone str cuando se junta)
+        #proceso
+        datosJuntos = "Usted se llama" + " " + nombre + " " + "y su edad es" + " " +  str(edad)
+        #salida
+        alert(title="Titulo", message= datosJuntos)
 
         
     
