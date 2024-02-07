@@ -33,8 +33,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        obtenerNombre = prompt(title="Pregunta", prompt= "Ingresa tu nombre: ")
-        mostrar = self.txt_nombre.get()
+        obtenerNombre = prompt("Nombre", "Ingresa tu nombre: ")
+        self.txt_nombre.delete(0, "end")
+        self.txt_nombre.insert(0, obtenerNombre)
+        
         
     
 if __name__ == "__main__":
