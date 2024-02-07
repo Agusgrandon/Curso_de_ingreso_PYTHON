@@ -42,11 +42,14 @@ class App(customtkinter.CTk):
         #datos
         numeroUno = self.txt_operador_a.get()
         numeroDos = self.txt_operador_b.get()
+        #lo paso a numero entero
+        numero_uno = int(numeroUno)
+        numero_dos = int(numeroDos)
         #proceso
-        suma = "El resultado de la sumas es: " + str(numeroUno) + str(numeroDos)
+        suma = numero_uno + numero_dos
         #salida
-        alert("Titulo",suma)
-     
+        alert("Resultado", "El resultado de la suma es: " + str(suma))
+                                                            #y aca lo convierto de vuelta a str
         
 if __name__ == "__main__":
     app = App()
