@@ -45,7 +45,7 @@ class App(customtkinter.CTk):
         #proceso
         suma = "El resultado de la sumas es: " + str(numeroUno) + str(numeroDos)
         #salida
-        alert(title="Titulo", message= suma)
+        alert("Titulo",suma)
      
         
 if __name__ == "__main__":

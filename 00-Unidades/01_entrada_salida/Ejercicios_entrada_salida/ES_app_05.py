@@ -45,9 +45,10 @@ class App(customtkinter.CTk):
         edad = self.txt_edad.get() #(aca no se puede poner int, tira error, se pone str cuando se junta)
         #proceso
         datosJuntos = "Usted se llama" + " " + nombre + " " + "y su edad es" + " " +  str(edad)
-        #tambien se puede asi: datosJuntos = "Usted se llama {0} y su edad es {1} años".format(nombre, edad)
+        #datosJuntos = "Usted se llama {0} y su edad es {1} años".format(nombre, edad)
+        #datosJuntos = f"Usted se llama {nombre} y su edad es {edad} años"
         #salida
-        alert(title="Titulo", message= datosJuntos)
+        alert("Titulo",datosJuntos)
 
         
     
