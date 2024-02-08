@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: agus
+apellido: grandon
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -56,7 +56,7 @@ class App(customtkinter.CTk):
         numero_dos = int(numeroDos)
 
         suma = numero_uno + numero_dos
-        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {suma}"
+        mensaje = f"El resultado de la suma es:{suma}"
         alert("titulo", mensaje)
 
     def btn_restar_on_click(self):
@@ -67,7 +67,7 @@ class App(customtkinter.CTk):
         numero_dos = int(numeroDos)
 
         resta = numero_uno - numero_dos
-        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {resta}"
+        mensaje = f"El resultado de la resta es:{resta}"
         alert("titulo", mensaje)
 
     def btn_multiplicar_on_click(self):
@@ -78,7 +78,7 @@ class App(customtkinter.CTk):
         numero_dos = int(numeroDos)
 
         multiplicar = numero_uno * numero_dos
-        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {multiplicar}"
+        mensaje = f"El resultado de la multiplicacion es:{multiplicar}"
         alert("titulo", mensaje)
 
     def btn_dividir_on_click(self):
@@ -89,7 +89,7 @@ class App(customtkinter.CTk):
         numero_dos = int(numeroDos)
 
         dividir = numero_uno / numero_dos
-        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {dividir}"
+        mensaje = f"El resultado de la division es:{dividir}"
         alert("titulo", mensaje)
         
 if __name__ == "__main__":
