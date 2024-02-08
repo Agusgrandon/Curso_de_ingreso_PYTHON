@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: agus
+apellido: grandon
 ---
 TP: ES_Facturaciones
 ---
@@ -52,13 +52,48 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        #datos
+        productoUno = self.txt_importe_1.get()
+        productoDos = self.txt_importe_2.get()
+        productoTres = self.txt_importe_3.get()
+        producto_uno = float(productoUno)
+        producto_dos = float(productoDos)
+        producto_tres = float(productoTres)
+        #proceso
+        calculoProductos = producto_uno + producto_dos + producto_tres
+        mensaje = f"La suma de los productos ingresados es de: {calculoProductos}"
+        #salida
+        alert("Titulo", mensaje)
 
     def btn_promedio_on_click(self):
-        pass
+        #datos
+        productoUno = self.txt_importe_1.get()
+        productoDos = self.txt_importe_2.get()
+        productoTres = self.txt_importe_3.get()
+        producto_uno = float(productoUno)
+        producto_dos = float(productoDos)
+        producto_tres = float(productoTres)
+        #proceso
+        calculoPromedio = (producto_uno + producto_dos + producto_tres) / 3
+        mensaje_uno = f"El promedio de los productos ingresados es de: {calculoPromedio}"
+        #salida
+        alert("Titulo", mensaje_uno)
 
     def btn_total_iva_on_click(self):
-        pass      
+        #datos
+        productoUno = self.txt_importe_1.get()
+        productoDos = self.txt_importe_2.get()
+        productoTres = self.txt_importe_3.get()
+        producto_uno = float(productoUno)
+        producto_dos = float(productoDos)
+        producto_tres = float(productoTres) 
+        #proceso
+        sumaProductos = producto_uno + producto_dos + producto_tres 
+        calculoIva = sumaProductos * 21 / 100   
+        totalCuenta = sumaProductos + calculoIva
+        mensajeDos = f"El total de la compra con el IVA incluido es de {totalCuenta}"
+        #salida
+        alert("Titulo", mensajeDos)
     
 if __name__ == "__main__":
     app = App()
