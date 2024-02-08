@@ -49,16 +49,48 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        pass
+        numeroUno = self.txt_operador_a.get()
+        numeroDos = self.txt_operador_b.get()
+
+        numero_uno = int(numeroUno)
+        numero_dos = int(numeroDos)
+
+        suma = numero_uno + numero_dos
+        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {suma}"
+        alert("titulo", mensaje)
 
     def btn_restar_on_click(self):
-        pass
+        numeroUno = self.txt_operador_a.get()
+        numeroDos = self.txt_operador_b.get()
+
+        numero_uno = int(numeroUno)
+        numero_dos = int(numeroDos)
+
+        resta = numero_uno - numero_dos
+        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {resta}"
+        alert("titulo", mensaje)
 
     def btn_multiplicar_on_click(self):
-        pass
+        numeroUno = self.txt_operador_a.get()
+        numeroDos = self.txt_operador_b.get()
+
+        numero_uno = int(numeroUno)
+        numero_dos = int(numeroDos)
+
+        multiplicar = numero_uno * numero_dos
+        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {multiplicar}"
+        alert("titulo", mensaje)
 
     def btn_dividir_on_click(self):
-        pass
+        numeroUno = self.txt_operador_a.get()
+        numeroDos = self.txt_operador_b.get()
+
+        numero_uno = int(numeroUno)
+        numero_dos = int(numeroDos)
+
+        dividir = numero_uno / numero_dos
+        mensaje = f"El resultado entre {numero_uno} y {numero_dos} es {dividir}"
+        alert("titulo", mensaje)
         
 if __name__ == "__main__":
     app = App()
