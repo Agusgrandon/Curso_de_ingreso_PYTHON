@@ -50,6 +50,7 @@ class App(customtkinter.CTk):
     def btn_convertir_c_f_on_click(self):
         pass
 
+
     def btn_convertir_f_c_on_click(self):
         pass
     
