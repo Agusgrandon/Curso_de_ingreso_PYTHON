@@ -43,27 +43,43 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        lamparas = 800
         cantidad = self.combobox_cantidad.get()
-        cantidades = int(cantidad)
+        cantidades = float(cantidad)
         marca = self.combobox_marca.get()
         importe = cantidades * 800
-        #A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
-        descuento_cincuenta = cantidades * 50 / 100 
+
+        # Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
+        descuento_cincuenta = importe * 50 / 100 
         descuento_uno = importe - descuento_cincuenta
-        #B. Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y 
-        descuento_cuarenta = cantidades * 40 / 100 
-        descuento_treinta = cantidades * 30 / 100
+
+        # Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % 
+        descuento_cuarenta = importe * 40 / 100 
         descuento_dos = importe - descuento_cuarenta
+
+        # si es de otra marca el descuento es del 30%.
+        descuento_treinta = importe * 30 / 100
         descuento_tres = importe - descuento_treinta
-        #C. Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento 
-        # del 25 % y si es de otra marca el descuento es del 20%.
-        descuento_veinticinco = cantidades * 25 / 100
+
+        # Si compra 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % 
+        descuento_veinticinco = importe * 25 / 100
         descuento_cuatro =  importe - descuento_veinticinco
-        # 20%
-        descuento_veinte = cantidades * 20 / 100 
+
+        # y si es de otra marca el descuento es del 20%.
+        descuento_veinte = importe * 20 / 100 
         descuento_cinco = importe - descuento_veinte
 
+        # Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz" el descuento es del 15%
+        descuento_quince = importe * 15 / 100
+        descuento_seis = importe - descuento_quince
+
+        # si es “FelipeLamparas” se hace un descuento del 10% 
+        descuento_diez = importe * 10 / 100
+        descuento_siete = importe - descuento_diez
+
+        # y si es de otra marca un 5%
+        descuento_cincoo = importe * 5 / 100
+        descuento_ocho = importe - descuento_cincoo
+ 
 
         if cantidades >= 6 :
             alert("Titulo", descuento_uno)
@@ -71,12 +87,16 @@ class App(customtkinter.CTk):
             alert("Titulo", descuento_dos)
         elif cantidades == 5 and marca != "ArgentinaLuz" :
             alert("Titulo", descuento_tres)
-        elif cantidades == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas" :
+        elif cantidades == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas") :
             alert("Titulo", descuento_cuatro)
-        elif cantidades == 4 and marca != "ArgentinaLuz" and marca != "FelipeLamparas" : 
+        elif cantidades == 4 and (marca != "ArgentinaLuz" and marca != "FelipeLamparas") : 
             alert("Titulo", descuento_cinco)
-
-
+        elif cantidades == 3 and marca == "ArgentinaLuz" :
+            alert("Titulo", descuento_seis)
+        elif cantidades == 3 and marca == "FelipeLamparas" :
+            alert("Titulo", descuento_siete)
+        elif cantidades == 3 and (marca != "ArgentinaLuz" and marca != "FelipeLamparas") :
+            alert("Titulo", descuento_ocho)
         
     
 if __name__ == "__main__":
