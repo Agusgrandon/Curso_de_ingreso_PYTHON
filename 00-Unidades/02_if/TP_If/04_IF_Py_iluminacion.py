@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: agus
+apellido: grandon
 ---
 TP: IF_Iluminacion
 ---
@@ -43,7 +43,40 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        lamparas = 800
+        cantidad = self.combobox_cantidad.get()
+        cantidades = int(cantidad)
+        marca = self.combobox_marca.get()
+        importe = cantidades * 800
+        #A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
+        descuento_cincuenta = cantidades * 50 / 100 
+        descuento_uno = importe - descuento_cincuenta
+        #B. Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y 
+        descuento_cuarenta = cantidades * 40 / 100 
+        descuento_treinta = cantidades * 30 / 100
+        descuento_dos = importe - descuento_cuarenta
+        descuento_tres = importe - descuento_treinta
+        #C. Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento 
+        # del 25 % y si es de otra marca el descuento es del 20%.
+        descuento_veinticinco = cantidades * 25 / 100
+        descuento_cuatro =  importe - descuento_veinticinco
+        # 20%
+        descuento_veinte = cantidades * 20 / 100 
+        descuento_cinco = importe - descuento_veinte
+
+
+        if cantidades >= 6 :
+            alert("Titulo", descuento_uno)
+        elif cantidades == 5 and marca == "ArgentinaLuz" :
+            alert("Titulo", descuento_dos)
+        elif cantidades == 5 and marca != "ArgentinaLuz" :
+            alert("Titulo", descuento_tres)
+        elif cantidades == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas" :
+            alert("Titulo", descuento_cuatro)
+        elif cantidades == 4 and marca != "ArgentinaLuz" and marca != "FelipeLamparas" : 
+            alert("Titulo", descuento_cinco)
+
+
         
     
 if __name__ == "__main__":
