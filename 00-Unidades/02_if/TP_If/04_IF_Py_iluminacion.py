@@ -79,24 +79,33 @@ class App(customtkinter.CTk):
         # y si es de otra marca un 5%
         descuento_cincoo = importe * 5 / 100
         descuento_ocho = importe - descuento_cincoo
+
+        # Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+        importe_dos = importe * 5 / 100
+        descuento_final = importe - importe_dos
  
 
         if cantidades >= 6 :
             alert("Titulo", descuento_uno)
-        elif cantidades == 5 and marca == "ArgentinaLuz" :
-            alert("Titulo", descuento_dos)
-        elif cantidades == 5 and marca != "ArgentinaLuz" :
-            alert("Titulo", descuento_tres)
-        elif cantidades == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas") :
-            alert("Titulo", descuento_cuatro)
-        elif cantidades == 4 and (marca != "ArgentinaLuz" and marca != "FelipeLamparas") : 
-            alert("Titulo", descuento_cinco)
-        elif cantidades == 3 and marca == "ArgentinaLuz" :
-            alert("Titulo", descuento_seis)
-        elif cantidades == 3 and marca == "FelipeLamparas" :
-            alert("Titulo", descuento_siete)
-        elif cantidades == 3 and (marca != "ArgentinaLuz" and marca != "FelipeLamparas") :
-            alert("Titulo", descuento_ocho)
+        elif cantidades == 5 : 
+             if marca == "ArgentinaLuz" :
+                alert("Titulo", descuento_dos)
+             else :
+                alert("Titulo", descuento_tres)
+        elif cantidades == 4 :
+             if (marca == "ArgentinaLuz" or marca == "FelipeLamparas") :
+                alert("Titulo", descuento_cuatro)
+             else : 
+                alert("Titulo", descuento_cinco)
+        elif cantidades == 3 : 
+             if marca == "ArgentinaLuz" :
+                alert("Titulo", descuento_seis)
+             elif marca == "FelipeLamparas" :
+                alert("Titulo", descuento_siete)
+             else :
+                alert("Titulo", descuento_ocho)
+        elif importe == 4000 :
+            alert("Titulo", descuento_final)
         
     
 if __name__ == "__main__":
