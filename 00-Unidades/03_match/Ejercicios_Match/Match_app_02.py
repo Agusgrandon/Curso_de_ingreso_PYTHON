@@ -44,29 +44,11 @@ class App(customtkinter.CTk):
         meses_de_anio = self.combobox_mes.get()
 
         match meses_de_anio:
-            case "Enero":
+            case "Enero" | "Febrero" | "Marzo" |  "Abril" | "Mayo" | "Junio":
                 alert("Titulo", "Falta para el invierno..")
-            case "Febrero":
-                alert("Titulo", "Falta para el invierno..")
-            case "Marzo":
-                alert("Titulo", "Falta para el invierno..")
-            case "Abril":
-                alert("Titulo", "Falta para el invierno..")
-            case "Mayo":
-                alert("Titulo", "Falta para el invierno..")
-            case "Junio":
-                alert("Titulo", "Falta para el invierno..")
-            case "Julio":
+            case "Julio" | "Agosto":
                 alert("Titulo", "¡Abrígate que hace frío!")
-            case "Agosto":
-                alert("Titulo", "¡Abrígate que hace frío!")
-            case "Septiembre":
-                alert("Titulo", "¡Ya pasamos frío, ahora calor!")
-            case "Octubre":
-                alert("Titulo", "¡Ya pasamos frío, ahora calor!")
-            case "Noviembre":
-                alert("Titulo", "¡Ya pasamos frío, ahora calor!")
-            case "Diciembre":
+            case _:
                 alert("Titulo", "¡Ya pasamos frío, ahora calor!")
     
     

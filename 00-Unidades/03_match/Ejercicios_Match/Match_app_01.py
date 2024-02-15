@@ -44,8 +44,9 @@ class App(customtkinter.CTk):
     
     def btn_informar_on_click(self):
         meses_de_anio = self.combobox_mes.get()
+        #se trabaja sobre una variable y se trabaja sobre los posibles casos de esa variable != en if hay una instruccion con su condicion 
 
-        match meses_de_anio:
+        match meses_de_anio: 
             case "Enero":
                 alert("Titulo", "Que comiences bien el año!")
             case "Marzo":
