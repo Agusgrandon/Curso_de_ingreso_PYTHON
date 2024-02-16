@@ -41,8 +41,6 @@ class App(customtkinter.CTk):
         meses_de_anio = self.combobox_mes.get()
 
         match meses_de_anio:
-            #case "Enero" | "Marzo" | "Abril" | "Mayo" | "Junio" | "Julio" | "Agosto" | "Septiembre" | "Octubre" | "Noviembre" | "Diciembre":
-                #alert("Titulo", "Este mes tiene 30 días o mas")
             case "Febrero":
                 alert("Titulo", "Este mes no tiene más de 29 días")
             case _:
