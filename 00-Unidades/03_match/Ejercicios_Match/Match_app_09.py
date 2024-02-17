@@ -63,7 +63,6 @@ class App(customtkinter.CTk):
         descuento = 0
         aumento = 0
 
-
         match estaciones :
             case "Invierno" :
                 if destinos == "Bariloche" :
@@ -85,7 +84,6 @@ class App(customtkinter.CTk):
                 else :
                     estadia
 
-
         aumento_a_realizar = estadia * aumento / 100
         aumento_hecho = aumento_a_realizar + estadia
         mensaje_1 = f"El precio final con el aumento del {aumento}% es de {aumento_hecho}"
@@ -95,7 +93,7 @@ class App(customtkinter.CTk):
         descuento_hecho = estadia - descuento_a_realizar 
         mensaje = f"El precio final con el descuento del {descuento}% es de {descuento_hecho}"
         alert("Titulo", mensaje)
-    
+     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
