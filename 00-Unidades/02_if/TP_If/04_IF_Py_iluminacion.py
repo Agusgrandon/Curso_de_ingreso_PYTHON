@@ -46,66 +46,40 @@ class App(customtkinter.CTk):
         cantidad = self.combobox_cantidad.get()
         cantidades = float(cantidad)
         marca = self.combobox_marca.get()
-        importe = cantidades * 800
+        precio = 800 
+        descuento = 0
+        precio_sin_descuento = precio * cantidades
 
-        # Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
-        descuento_cincuenta = importe * 50 / 100 
-        descuento_uno = importe - descuento_cincuenta
-
-        # Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % 
-        descuento_cuarenta = importe * 40 / 100 
-        descuento_dos = importe - descuento_cuarenta
-
-        # si es de otra marca el descuento es del 30%.
-        descuento_treinta = importe * 30 / 100
-        descuento_tres = importe - descuento_treinta
-
-        # Si compra 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % 
-        descuento_veinticinco = importe * 25 / 100
-        descuento_cuatro =  importe - descuento_veinticinco
-
-        # y si es de otra marca el descuento es del 20%.
-        descuento_veinte = importe * 20 / 100 
-        descuento_cinco = importe - descuento_veinte
-
-        # Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz" el descuento es del 15%
-        descuento_quince = importe * 15 / 100
-        descuento_seis = importe - descuento_quince
-
-        # si es “FelipeLamparas” se hace un descuento del 10% 
-        descuento_diez = importe * 10 / 100
-        descuento_siete = importe - descuento_diez
-
-        # y si es de otra marca un 5%
-        descuento_cincoo = importe * 5 / 100
-        descuento_ocho = importe - descuento_cincoo
-
-        # Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
-        importe_dos = importe * 5 / 100
-        descuento_final = importe - importe_dos
- 
 
         if cantidades >= 6 :
-            alert("Titulo", descuento_uno)
+            descuento = 50
         elif cantidades == 5 : 
              if marca == "ArgentinaLuz" :
-                alert("Titulo", descuento_dos)
+                descuento = 40
              else :
-                alert("Titulo", descuento_tres)
+                descuento = 30
         elif cantidades == 4 :
              if (marca == "ArgentinaLuz" or marca == "FelipeLamparas") :
-                alert("Titulo", descuento_cuatro)
+                descuento = 25
              else : 
-                alert("Titulo", descuento_cinco)
+                descuento = 20
         elif cantidades == 3 : 
              if marca == "ArgentinaLuz" :
-                alert("Titulo", descuento_seis)
+                descuento = 15
              elif marca == "FelipeLamparas" :
-                alert("Titulo", descuento_siete)
+                descuento = 10
              else :
-                alert("Titulo", descuento_ocho)
-        elif importe == 4000 :
-            alert("Titulo", descuento_final)
+                descuento = 5
+      
+        descuento_a_realizar = precio_sin_descuento * descuento / 100
+        descuento_hecho = precio_sin_descuento - descuento_a_realizar
+        mensaje = f"El precio es de {precio_sin_descuento}, colocando un descuento del {descuento}% queda en total {descuento_hecho}"
+
+        if descuento_hecho > 4000 :
+            descuento_hecho *= 0.95
+            mensaje = f"El precio es de {precio_sin_descuento}, colocando un descuento del {descuento}% más un descuento del 40% queda en total {descuento_hecho}"
+        
+        alert("Titulo", mensaje)
         
     
 if __name__ == "__main__":

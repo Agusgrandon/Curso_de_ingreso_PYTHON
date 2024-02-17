@@ -40,7 +40,22 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        contador = 0
+        maximo = -1000
+        minimo = 1000
+
+        while contador < 5:
+            numero = prompt("E", "f")
+            numero = int(numero)
+
+            if numero > maximo:
+                maximo = numero
+
+            if numero < minimo:
+                minimo = numero
+            
+
+            contador += 1
 
 
 if __name__ == "__main__":
