@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: agus
+apellido: grandon
 ---
 TP: Iluminación
 ---
@@ -51,30 +51,46 @@ class App(customtkinter.CTk):
         precio_sin_descuento = precio * cantidad
 
         match marca :
-            case "ArgentinaLuz" | "FelipeLamparas" | "JeLuz" | "HazIluminacion" | "Osram" :
+            case "ArgentinaLuz" :
                  if cantidad >= 6 :
                      descuento = 50
-            case "ArgentinaLuz" :
-                 if cantidad > 5 :
-                     descuento = 40
+                 elif cantidad == 5 :
+                     descuento = 40 
+                 elif cantidad == 4 :
+                     descuento = 25
+                 elif cantidad == 3 :
+                     descuento = 15 
+            case "FelipeLamparas" :
+                 if cantidad >= 6 :
+                     descuento = 50
+                 elif cantidad == 5 :
+                     descuento = 30 
+                 elif cantidad == 4 :
+                     descuento = 25
+                 elif cantidad == 3 :
+                     descuento = 10 
+            case "JeLuz" | "HazIluminacion" | "Osram" :
+                 if cantidad >= 6 :
+                     descuento = 50
+                 elif cantidad == 5 :
+                     descuento = 30 
+                 elif cantidad == 4 :
+                     descuento = 20
+                 elif cantidad == 3 :
+                     descuento = 5
 
-        
 
         descuento_a_realizar = precio_sin_descuento * descuento / 100
         descuento_hecho = precio_sin_descuento - descuento_a_realizar
         mensaje = f"El precio es de {precio_sin_descuento}, colocando un descuento del {descuento}% queda en total {descuento_hecho}"
 
-        #if descuento_hecho > 4000 :
-            #descuento_hecho *= 0.95
-            #mensaje = f"El precio es de {precio_sin_descuento}, colocando un descuento del {descuento}% más un descuento del 40% queda en total {descuento_hecho}"
+        if descuento_hecho > 4000 :
+            descuento_hecho *= 0.95
+            mensaje = f"El precio es de {precio_sin_descuento}, colocando un descuento del {descuento}% más un descuento del 5% queda en total {descuento_hecho}"
         
         alert("Titulo", mensaje)
 
-
-
-
-        
-    
+   
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
