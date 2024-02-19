@@ -41,9 +41,8 @@ class App(customtkinter.CTk):
 
         self.label2 = customtkinter.CTkLabel(master=self, text="Estado")
         self.label2.grid(row=2, column=0, padx=20, pady=10)
-        self.combobox_tipo = customtkinter.CTkComboBox(
-            master=self, values=["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"])
-        self.combobox_tipo.grid(row=2, column=1, padx=20, pady=10)
+        self.txt_tipo = customtkinter.CTkEntry(master=self)
+        self.txt_tipo.grid(row=2, column=1, padx=20, pady=10)
 
         self.label3 = customtkinter.CTkLabel(master=self, text="Legajo")
         self.label3.grid(row=3, column=0, padx=20, pady=10)
@@ -55,8 +54,34 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt("Titulo", "Ingresa tu apellido")
+        edad = int(prompt("Titulo", "Ingresa tu edad"))
+        estado_civil = prompt("Titulo", "Ingresa tu estado civil")
+        numero_de_legajo = int(prompt("Titulo", "Ingresa tu numero de legajo"))
 
+        while not (estado_civil == "soltero" or estado_civil == "casado" or estado_civil == "divorciado" or estado_civil == "viudo") :
+            estado_civil = prompt("Titulo", "Error, ingresa tu estado civil")
+            if estado_civil == "soltero" or estado_civil == "casado" or estado_civil == "divorciado" or estado_civil == "viudo" :
+                break
+
+        while not (edad >= 18 and edad <= 90) :
+                edad = prompt("Titulo", "Error, ingresa tu edad")
+                edad = int(edad)
+                if edad >= 18 and edad <= 90 :
+                     break
+        while not (numero_de_legajo >= 1000 and numero_de_legajo <= 9999) :
+                numero_de_legajo = prompt("Titulo", "Error, ingresa tu numero de legajo")
+                numero_de_legajo = int(numero_de_legajo)
+                if numero_de_legajo >= 1000 and numero_de_legajo <= 9999 :
+                     break
+
+
+        self.txt_legajo.delete(0, "end")
+        self.txt_legajo.insert(0, numero_de_legajo)     
+        self.txt_edad.delete(0, "end")
+        self.txt_edad.insert(0, edad)
+        self.txt_tipo.delete(0, "end")
+        self.txt_tipo.insert(0, estado_civil)
 
 if __name__ == "__main__":
     app = App()
