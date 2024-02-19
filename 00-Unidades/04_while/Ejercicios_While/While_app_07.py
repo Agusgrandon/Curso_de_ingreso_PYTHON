@@ -40,7 +40,7 @@ class App(customtkinter.CTk):
         acumulador = 0
 
         while True:
-            numeros = prompt("u", "yyt")
+            numeros = prompt("Titulo", "Ingresa un numero")
 
             if numeros == None:
                 break
@@ -49,11 +49,10 @@ class App(customtkinter.CTk):
             acumulador += numero
             contador += 1
 
-
-
         promedio = acumulador / contador
         self.txt_suma_acumulada.delete(0, "end")
         self.txt_suma_acumulada.insert(0, acumulador)
+
         self.txt_promedio.delete(0, "end")
         self.txt_promedio.insert(0, promedio)
 
