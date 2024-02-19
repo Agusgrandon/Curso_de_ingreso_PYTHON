@@ -6,7 +6,7 @@ import customtkinter
 
 
 '''
-nombre:
+nombre: agus grandon
 apellido:
 ---
 Ejercicio: while_02

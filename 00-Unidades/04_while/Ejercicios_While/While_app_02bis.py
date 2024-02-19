@@ -6,7 +6,7 @@ import customtkinter
 
 
 '''
-nombre:
+nombre: agus grandon
 apellido:
 ---
 Ejercicio: while_02bis
@@ -30,11 +30,15 @@ class App(customtkinter.CTk):
     
     def btn_mostrar_iteracion_on_click(self):
         contador_inicial = 2
+        resultado = 0
 
         while contador_inicial <= 10:
-            alert("Titulo", contador_inicial)
-            
-            contador_inicial = 2
+            if contador_inicial % 2 == 0 :
+                resultado += contador_inicial
+            contador_inicial += 1
+
+        alert("Titulo", "El resultado es: " + str(resultado))
+     
     
     
 if __name__ == "__main__":
