@@ -40,22 +40,25 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        contador = 0
+        flag = True
 
-        while contador < 5:
-            numeros = prompt("Titulo", "Ingrese un numero")
-            numero = int(numeros)
+        while True:
+            numero = prompt("Titulo", "Ingrese un numero")
+            if numero == None :
+                break
 
-            if contador == 0 :
-                maximo = numero
-                minimo = numero
+            numero = int(numero)
+
+            if flag == True : #aca pregunto si 0 es el primero, para saber si estamos en la primera vuelta, y aca hacemos la primera asignacion
+                maximo = numero #ceteamos las variables por primera vez
+                minimo = numero #evaluo cual es el max y mini y lo guardo en la variable
+                flag = False
             else:
-                if numero > maximo :
+                if numero > maximo : #aca pregunto si el numero ingresado es max o minimo
                     maximo = numero
-                if numero < minimo :
+                elif numero < minimo :
                     minimo = numero
             
-            contador +=  1
 
         self.txt_minimo.delete(0, "end")
         self.txt_minimo.insert(0, minimo)
@@ -63,7 +66,11 @@ class App(customtkinter.CTk):
         self.txt_maximo.delete(0, "end")
         self.txt_maximo.insert(0, maximo)
 
-
+#se empieza con el contador, en el if se evalua el numero ingresado, 
+# cosas que no se tienen que hacer: no se puede declarar en variables el mx y min, y despues preguntar con el if
+# el elif es el SI NO del otro lado, es la negacion de la primer pregunta 
+# concepto de las banderas: flag, se puede usar para preguntar algo, se reemplaza por el contador, ej flag = true, pregunto si es igual a treu, y despues coloco flase
+# la bandera me sirve para separar cosas, tengo que ponerla al final por que si no siempre me va a tomar el primer numero       
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

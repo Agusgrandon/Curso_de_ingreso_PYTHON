@@ -55,7 +55,7 @@ class App(customtkinter.CTk):
             elif numero > 0 :
                 positivos += numero 
                 cantidad_positivos += 1
-            elif numero == 0 :
+            else:
                 cantidad_ceros += 1
 
         
