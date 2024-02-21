@@ -59,22 +59,25 @@ class App(customtkinter.CTk):
         estado_civil = prompt("Titulo", "Ingresa tu estado civil")
         numero_de_legajo = int(prompt("Titulo", "Ingresa tu numero de legajo"))
 
+        while not apellido :
+             apellido = prompt("Titulo", "Ingresa tu apellido")
+             if apellido.isalpha() :
+                  break
         while estado_civil != "soltero" and estado_civil != "casado" and estado_civil != "divorciado" and estado_civil != "viudo" :
             estado_civil = prompt("Titulo", "Error, ingresa tu estado civil")
             if estado_civil == "soltero" or estado_civil == "casado" or estado_civil == "divorciado" or estado_civil == "viudo" :
                break
-        while not (edad >= 18 and edad <= 90) :
-                edad = prompt("Titulo", "Error, ingresa tu edad")
-                edad = int(edad)
+        while edad < 18 or edad > 90 :
+                edad = int(prompt("Titulo", "Error, ingresa tu edad"))
                 if edad >= 18 and edad <= 90 :
                     break
-        while not (numero_de_legajo >= 1000 and numero_de_legajo <= 9999) :
-                numero_de_legajo = prompt("Titulo", "Error, ingresa tu numero de legajo")
-                numero_de_legajo = int(numero_de_legajo)
+        while numero_de_legajo < 1000 or numero_de_legajo > 9999 :
+                numero_de_legajo = int(prompt("Titulo", "Error, ingresa tu numero de legajo"))
                 if numero_de_legajo >= 1000 and numero_de_legajo <= 9999 :
                      break
                 
-
+        self.txt_apellido.delete(0, "end")
+        self.txt_apellido.insert(0, apellido)
         self.txt_legajo.delete(0, "end")
         self.txt_legajo.insert(0, numero_de_legajo)     
         self.txt_edad.delete(0, "end")
