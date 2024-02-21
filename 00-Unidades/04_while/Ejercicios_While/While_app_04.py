@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
         if numero >= 0 and numero <= 9 :
             alert("Titulo", numero)
 
-        while not (numero >= 0 and numero <= 9) :
+        while numero < 0 or numero > 9 :
              validar_numero = prompt("Titulo", "El numero debe ser desde el 0 al 9: ")
              numero = int(validar_numero)
              if numero >= 0 and numero <= 9 :

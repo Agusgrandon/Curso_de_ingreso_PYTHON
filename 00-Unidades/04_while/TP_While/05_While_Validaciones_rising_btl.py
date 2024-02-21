@@ -59,16 +59,15 @@ class App(customtkinter.CTk):
         estado_civil = prompt("Titulo", "Ingresa tu estado civil")
         numero_de_legajo = int(prompt("Titulo", "Ingresa tu numero de legajo"))
 
-        while estado_civil != "soltero" or estado_civil != "casado" or estado_civil != "divorciado" or estado_civil != "viudo" :
+        while estado_civil != "soltero" and estado_civil != "casado" and estado_civil != "divorciado" and estado_civil != "viudo" :
             estado_civil = prompt("Titulo", "Error, ingresa tu estado civil")
             if estado_civil == "soltero" or estado_civil == "casado" or estado_civil == "divorciado" or estado_civil == "viudo" :
-                break
-
+               break
         while not (edad >= 18 and edad <= 90) :
                 edad = prompt("Titulo", "Error, ingresa tu edad")
                 edad = int(edad)
                 if edad >= 18 and edad <= 90 :
-                     break
+                    break
         while not (numero_de_legajo >= 1000 and numero_de_legajo <= 9999) :
                 numero_de_legajo = prompt("Titulo", "Error, ingresa tu numero de legajo")
                 numero_de_legajo = int(numero_de_legajo)
