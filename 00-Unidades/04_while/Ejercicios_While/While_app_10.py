@@ -21,6 +21,7 @@ Luego calcular:
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
 
+
 Informar los resultados mediante alert()
 
 '''
@@ -37,15 +38,19 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
+        #la bandera puede servir para algo no necesite contar, es decir, usar el contador
         positivos = 0
         negativos = 0
         cantidad_positivos = 0
         cantidad_negativos = 0
         cantidad_ceros = 0
+        contador = 1
   
         while True :
+            
             numeros = prompt("Titulo", "Ingresa un numero")
-
+            #ESTO PARA PONER CANCELAR Y QUE SALGA DEL BUCLE, valor nulo, sale por consola.cuando pongo cancelar devuelve un none
+            # acumulador !0 contador el acu guardar el valor de la varable el contador suma una cantidad constante
             if numeros == None:
                 break
             numero = int(numeros)
@@ -57,10 +62,25 @@ class App(customtkinter.CTk):
                 cantidad_positivos += 1
             else:
                 cantidad_ceros += 1
-
+     #while numero == "" or not numero.isdigit():
+               # numero = prompt(ingrese un numero)
+                
+        #MAX Y MIN
+            if contador == 0 :
+              maximo = numero 
+              minimo = numero
+            else:
+               if numero > maximo :
+                maximo = numero
+               elif numero < minimo :
+                minimo = numero
+                contador_minimo = contador 
+            contador += 1
         
-        diferencia = cantidad_positivos - cantidad_negativos
-        mensaje = f"El resultado es {positivos}, {negativos}, {cantidad_positivos}, {cantidad_negativos}, {cantidad_ceros}, {diferencia}"
+        diferencia = cantidad_positivos - cantidad_negativos #afuera porque los datos para hacer la cuenta los tengo luego del while
+        if diferencia < 0 :
+            diferencia *= -1
+        mensaje = f"El resultado es {positivos}, {negativos}, {cantidad_positivos}, {cantidad_negativos}, 0: {cantidad_ceros}, dif: {diferencia}, minimo: {minimo}, maximo:{maximo}, c{contador_minimo}"
         alert("Titulo", mensaje)
 
 

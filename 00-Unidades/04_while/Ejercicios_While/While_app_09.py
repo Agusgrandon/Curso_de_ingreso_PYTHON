@@ -40,6 +40,16 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
+        #la bandera me sirve para , solo se cambia el valor de la bandera si el if fue mayor a 10 if var >10:
+        #me avisa que el numero que se ingreso fue 10 o menor es una iteracion, me avisa que la variable fue o no mayor o igual a 10
+        #me avisa d ecambios de estados especifios o genericos
+        #continuar = question("hola", "quiere continuar")
+        # PARA MAX: 
+        #contador = 0
+        #if contador == 0 or edad > edad_maxima
+        #edad_maxima = edad
+        #sumatoria_edad += edad
+        #contador += 1
         flag = True
 
         while True:

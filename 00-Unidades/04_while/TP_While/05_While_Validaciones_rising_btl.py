@@ -54,27 +54,27 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+       
         apellido = prompt("Titulo", "Ingresa tu apellido")
-        edad = int(prompt("Titulo", "Ingresa tu edad"))
-        estado_civil = prompt("Titulo", "Ingresa tu estado civil")
-        numero_de_legajo = int(prompt("Titulo", "Ingresa tu numero de legajo"))
-
-        while not apellido :
+        while apellido == None or apellido == '':
              apellido = prompt("Titulo", "Ingresa tu apellido")
-             if apellido.isalpha() :
-                  break
+
+        estado_civil = prompt("Titulo", "Ingresa tu estado civil")     
         while estado_civil != "soltero" and estado_civil != "casado" and estado_civil != "divorciado" and estado_civil != "viudo" :
             estado_civil = prompt("Titulo", "Error, ingresa tu estado civil")
-            if estado_civil == "soltero" or estado_civil == "casado" or estado_civil == "divorciado" or estado_civil == "viudo" :
-               break
-        while edad < 18 or edad > 90 :
-                edad = int(prompt("Titulo", "Error, ingresa tu edad"))
-                if edad >= 18 and edad <= 90 :
-                    break
+            #self.combobox_tipo.set("casado")
+
+        edad = prompt("Titulo", "Ingresa tu edad")
+        edad = int(edad)
+        while edad < 18 or edad > 90 : #or not edad.isdigit() or int(edad) > 1:
+                edad = prompt("Titulo", "Error, ingresa tu edad")
+                edad = int(edad)
+
+        numero_de_legajo = prompt("Titulo", "Ingresa tu numero de legajo")
+        numero_de_legajo = int(numero_de_legajo)
         while numero_de_legajo < 1000 or numero_de_legajo > 9999 :
-                numero_de_legajo = int(prompt("Titulo", "Error, ingresa tu numero de legajo"))
-                if numero_de_legajo >= 1000 and numero_de_legajo <= 9999 :
-                     break
+                numero_de_legajo = prompt("Titulo", "Error, ingresa tu numero de legajo")
+                numero_de_legajo = int(numero_de_legajo)
                 
         self.txt_apellido.delete(0, "end")
         self.txt_apellido.insert(0, apellido)
