@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre: agus
+apellido: grandon
 ---
 Ejercicio: for_01
 ---
@@ -28,7 +28,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
+        #se utiliza cuando conocemosla cantidad de iteraciones se va a ingresar
+        for i in range(1, 5 +1):
+            print(f"{i}")
        
             
 

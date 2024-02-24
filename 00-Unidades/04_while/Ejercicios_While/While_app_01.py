@@ -29,13 +29,112 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        contador_inicial = 1
+        #contador_inicial = 1
+        #while contador_inicial <= 10:
+            #alert("Titulo", contador_inicial)
+            #contador_inicial += 1
+        
+        #antes del while
+        continuar = True
+        contador_m_tec = 0
+        contador_tec_IA = 0
+        contador_tec_RV_RA= 0
+        contador_tec_IOT = 0
+        contador_f = 0
+        contador_m = 0
+        contador_otro = 0
+        contador_f_IA = 0
+        acumulador_f_IA = 0
 
-        while contador_inicial <= 10:
-            alert("Titulo", contador_inicial)
+
+
+
+        #durante el whiel, adentro sumamos, contamos, afuera comparamos
+        while continuar == True:
+                    
+            nombre = input("Ingresa tu nombre") #si no se pide validarlo, no se valida
+            edad = input("Ingresa tu edad")
+            edad = int(edad)
+            while edad < 18 : 
+                edad = input("Error, ingresa tu edad")
+                edad = int(edad)
             
-            contador_inicial += 1
-    
+            genero = input( "Ingresa tu genero")
+            while genero != "masculino" and genero != "femenino" and genero != "otro" :
+                genero = input( "Error, ingresa tu genero")
+            
+            tecnologia = input("Ingresa la tecnologia")
+            while tecnologia != "IA" and tecnologia != "RV/RA" and tecnologia != "IOT" :
+                tecnologia = input( "Error, Ingresa la tecnologia")
+
+            continuar = question("Titulo","Desea continuar?")
+            
+            #ej2: maximo, tiene que ir afuera porque primero tenemos que ver el contador, y despues afuera lo comparo
+            if tecnologia == "IA":
+                contador_tec_IA += 1
+            elif tecnologia == "RV/RA":
+                contador_tec_RV_RA += 1
+                 #ej6: HALLAR MINIMO
+                if contador_tec_RV_RA == 1 or edad < edad_minima :
+                    edad_minima = edad
+                    nombre_minimo = nombre
+                    genero_minimo = genero
+            else:
+                contador_tec_IOT += 1
+                if (edad >= 18 and edad <=25) or (edad >= 33 and edad <= 42 ):
+                    contador_tec_IOT += 1
+
+            
+            #ej3: sacar porcentaje 
+            match genero:
+                case "femenino":
+                    contador_f += 1
+                    if tecnologia == "IA" :
+                       contador_f_IA += 1
+                       acumulador_f_IA += edad
+                case "masculino":
+                    contador_m += 1
+                    #ej1: contador, primero lee los and, por eso el or va en parentesis
+                    if (tecnologia == "IA" or tecnologia == "IA") and edad >= 25 and edad <= 50 :
+                      contador_m_tec += 1
+                case "otro":
+                    contador_otro += 1
+
+
+
+        #despues del while
+        #ej2comparacion:
+        if contador_tec_IOT > contador_tec_IA and contador_tec_IOT > contador_tec_RV_RA:
+            tecnologia_mas_votada = "IOT"
+        elif contador_tec_IA > contador_tec_RV_RA :
+            tecnologia_mas_votada = "IA"
+        else:
+            tecnologia_mas_votada = "RV/RA"
+        #ej 3
+        total_empleados = contador_f + contador_m + contador_otro
+        porcentaje_femenino = (contador_f * 100) / total_empleados
+        porcentaje_masculino = (contador_f * 100) / total_empleados
+        porcentaje_otro = 100 - (porcentaje_femenino + porcentaje_masculino)
+        #ej4:
+        porcetaje_IOT = (contador_tec_IOT * 100) / total_empleados
+        #ej5:
+        if contador_f_IA > 0:
+           promedio_femenino_IA = acumulador_f_IA / contador_f_IA 
+        else:
+            promedio_femenino_IA = "no se puede dividir por 0"
+
+
+
+        print(f"cantidad masculinos IOT/IA en rango de edad es: {contador_m_tec}")
+        print(f"la tec más votada  es: {tecnologia_mas_votada}")
+        print(f"porcentaje femenino{porcentaje_femenino}, mas{porcentaje_masculino}, otro{porcentaje_otro}")
+        print(f"porcentaje votaron IOT en rango {porcetaje_IOT}")
+        print(f"promedio f que vootaron IA {promedio_femenino_IA}")
+        if contador_tec_RV_RA != 0:
+         print(f"minimo{edad_minima}, {genero_minimo }, {nombre_minimo}")
+        else:
+            print("no se encontro el minimo")
+              
     
 if __name__ == "__main__":
     app = App()
