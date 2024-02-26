@@ -28,7 +28,8 @@ import warnings
 #? Para ello, se solicitará al usuario la siguiente información al momento de 
 #? comprar cada entrada:
 '''
-NOMBRE = '' # Completa tu nombre completo solo en esa variable
+NOMBRE = "AGUS GRANDON"
+
 '''
 #?################ ENUNCIADO #################
 Para ello deberas programar el boton "Cargar Ventas" para poder cargar 10 ventas.

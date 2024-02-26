@@ -33,35 +33,13 @@ A) Para ello deberás programar el botón  para poder cargar 10 operaciones de c
     * Cantidad de instrumentos  (no menos de cero) 
     Son 10 datos
 
-B) Al presionar el botón mostrar 
-    
-    Informe 1 - Se deberán listar todos los datos de los usuarios y su posición en la lista (por terminal) 
-
-# IMPORTANTE:
-Del punto C solo deberá realizar SOLAMENTE 2 informes. 
-(PRESUPONER QUE CADA CLIENTE INGRESADO ES UN CLIENTE DISTINTO, NINGUNO SE REPITE, 
-no es necesario validar que no haya nombres repetidos)
-
-Para determinar que informe hacer, tenga en cuenta lo siguiente:
-    
-    Informe 2 - Tome el último número de su DNI Personal (Ej 4) 
-        y realice ese informe (Ej, Realizar informe 4) = 7
-
-    Informe 3 - Tome el último número de su DNI Personal (Ej 4), 
-        y restarle al número 9 (Ej 9-4 = 5). En caso de que su DNI 
-        finalice con el número 0, deberá realizar el informe 9. 9-7 = 2
-
-    Realizar los informes correspondientes a los números obtenidos. 
-        EL RESTO DE LOS INFORMES LOS DEBE IGNORAR. 
 C) 
     #! 0) - Tipo de instrumento que menos se operó en total.
     #! 1) - Tipo de instrumento que más se operó en total.
     #! 2) - Cantidad de usuarios que compraron entre 50  y 200 MEP 
     #! 3) - Cantidad de usuarios que no compraron CEDEAR 
     #! 4) - Nombre y cantidad invertida del primer usuario que compró BONOS o CEDEAR
-    #! 5) - Nombre y posicion de la persona que menos BONOS compro
     #! 6) - Nombre y posicion del usuario que invirtio menos dinero
-    #! 7) - Nombre y posicion del usuario que mas cantidad de instrumentos compró
     #! 8) - Promedio de dinero en CEDEAR  ingresado en total.  
     #! 9) - Promedio de cantidad de instrumentos  MEP vendidos en total
 """
@@ -95,7 +73,90 @@ class App(customtkinter.CTk):
         self.lista_cantidad_instrumento = [20, 35, 199, 100, 80]
     
     def btn_cargar_datos_on_click(self):
-        pass
+        contador_ventas = 0
+        contador_BONOS = 0
+        contador_CEDEAR = 0
+        contador_MEP = 0
+        acumulador_mep = 0
+        acumulador_CEDEAR = 0
+
+
+        while contador_ventas <= 3 :
+            nombre = prompt("Titulo", "Ingresa tu nombre")
+            while nombre == None or nombre == '':
+                nombre = prompt("Titulo", "Error, ingresa tu nombre")
+            #Monto en pesos de la operación (no menor a $10000)
+            monto_de_operacion = prompt("Titulo", "Ingresa el monto de la opreacion")
+            monto_de_operacion = int(monto_de_operacion)
+            while monto_de_operacion < 10000 :
+                monto_de_operacion = prompt("Titulo", "Error, ingresa un monto mayor a $10.000")
+                monto_de_operacion = int(monto_de_operacion)
+            #Tipo de instrumento(CEDEAR, BONOS, MEP)
+            tipo_de_instrumento = prompt("Titulo", "Ingresa el instrumento: CEDEAR, BONOS, MEP")
+            while tipo_de_instrumento != "CEDEAR" and tipo_de_instrumento != "BONOS" and tipo_de_instrumento != "MEP" :
+                tipo_de_instrumento =prompt("Titulo", "Error, ingresa el instrumento: CEDEAR, BONOS, MEP")
+            # Cantidad de instrumentos  (no menos de cero)
+            cantidad_de_instrumento = prompt("Titulo", "Ingresa la cantidad de instrumentos")
+            cantidad_de_instrumento = int(cantidad_de_instrumento)
+            while cantidad_de_instrumento < 0 :
+                cantidad_de_instrumento = prompt("Titulo", "Error, ingresa la cantidad de instrumentos")
+                cantidad_de_instrumento = int(cantidad_de_instrumento)
+            
+            #0) - Tipo de instrumento que menos se operó en total.
+            if tipo_de_instrumento == "CEDEAR" :
+                contador_CEDEAR += 1 
+                ##! 3) - Cantidad de usuarios que no compraron CEDEAR 
+                if cantidad_de_instrumento == 0 :
+                     acumulador_CEDEAR += 1
+            elif tipo_de_instrumento == "BONOS" :
+                contador_BONOS += 1
+            else:
+                contador_MEP += 1
+                ##! 2) - Cantidad de usuarios que compraron entre 50  y 200 MEP 
+                if cantidad_de_instrumento > 50 and cantidad_de_instrumento < 200 :
+                    acumulador_mep += 1
+
+            
+
+
+            contador_ventas += 1
+        ##! 9) - Promedio de cantidad de instrumentos  MEP vendidos en total
+        promedio_instrumentos_mep = cantidad_de_instrumento / contador_MEP
+        
+        ##! 8) - Promedio de dinero en CEDEAR  ingresado en total.
+        if contador_CEDEAR < 0 :
+            promedio_cedear = monto_de_operacion / contador_CEDEAR 
+        else: 
+            promedio_cedear = "no se puede dividir por 0"
+        ##! 4) - Nombre y cantidad invertida del primer usuario que compró BONOS o CEDEAR
+               
+        #MAXIMO
+        if contador_CEDEAR > contador_BONOS and contador_CEDEAR> contador_MEP:
+            instrumento_mas_votado = "CEDEAR"
+        elif contador_BONOS > contador_MEP:
+            instrumento_mas_votado = "BONOS"
+        else:
+            instrumento_mas_votado = "MEP"
+        #MINIMO 
+        if contador_CEDEAR < contador_BONOS and contador_CEDEAR < contador_MEP:
+            instrumento_menos_votado = "CEDEAR"
+        elif contador_BONOS < contador_MEP:
+            instrumento_menos_votado = "BONOS"
+        else:
+            instrumento_menos_votado = "MEP"
+
+        mensaje = (f"El instrumento más votado fue {instrumento_mas_votado}.\n"
+                   f"El instrumento menos votado es {instrumento_menos_votado}.\n"
+                   f"la cantidad de usuarios que compraron entre 50 y 200MEP son {acumulador_mep}.\n"
+                   F"la cantidad de usuarios que no compraron CEDEAR son {acumulador_CEDEAR}.\n"
+                   f"el promedio de dinero invertido en cedear es {promedio_cedear}.\n"
+                   f"el promedio de cantidad de instrumentos MEP vendidos son {promedio_instrumentos_mep}")
+
+        alert("Titulo", mensaje)
+
+
+
+
 
 
     def btn_mostrar_informe_1(self):

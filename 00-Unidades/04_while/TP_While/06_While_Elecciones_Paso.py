@@ -36,40 +36,54 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         contador_de_votos = 0
-        candidato_mas_votado = 0
+        contador_candidatos = 0
+        contador_edades = 0 
         continuar = True
 
         while continuar == True :
 
             nombre_del_candidato = prompt("Titulo", "Ingresa el nombre del candidato")
-            if nombre_del_candidato == None or nombre_del_candidato == '':
+            while nombre_del_candidato == None or nombre_del_candidato == '':
                 nombre_del_candidato = prompt("Titulo", "Ingresa el nombre del candidato")
             
             edad_del_candidato = prompt("Titulo", "Ingresa la edad del candidato")
             edad_del_candidato = int(edad_del_candidato)
-            if edad_del_candidato == '' or edad_del_candidato < 25 :
+            while edad_del_candidato < 25 :
                 edad_del_candidato = prompt("Titulo", "Ingresa la edad del candidato")
                 edad_del_candidato = int(edad_del_candidato)
             
             cantidad_de_votos = prompt("Titulo", "Ingresa la cantidad de votos que recibio")
             cantidad_de_votos = int(cantidad_de_votos)
-            if cantidad_de_votos == None or cantidad_de_votos < 0 :
+            while cantidad_de_votos == '' or cantidad_de_votos < 0 :
                 cantidad_de_votos = prompt("Titulo", "Ingresa la cantidad de votos que recibio")
                 cantidad_de_votos = int(cantidad_de_votos)
+            #a. nombre del candidato con más votos
+            if contador_candidatos == 0 or cantidad_de_votos > mayor_votado :
+                mayor_votado = cantidad_de_votos
+                candidato_mas_votado = nombre_del_candidato
+            #b nombre y edad del candidato con menos votos
+            if contador_candidatos == 0 or cantidad_de_votos < menor_votado :
+                menor_votado = cantidad_de_votos
+                candidato_menos_votado = nombre_del_candidato
+                edad_del_candidato_menos_votado = edad_del_candidato
+
             
             continuar = question("Titulo", "Desea continuar?")
         
             #d. total de votos emitidos.
             contador_de_votos += cantidad_de_votos
-            #a. nombre del candidato con más votos
-            if cantidad_de_votos :
-                candidato_mas_votado += 1
+            contador_candidatos += 1
+            contador_edades += edad_del_candidato
+            
+        
 
-        if cantidad_de_votos > candidato_mas_votado:
-            candidato_mas_votado = cantidad_de_votos
-
-
-        mensaje = f"La cantidad de votos es {contador_de_votos}, el candidato más votado es {candidato_mas_votado}"
+        #c. el promedio de edades de los candidatos
+        promedio_edad = contador_edades / contador_candidatos
+        mensaje = (
+            f"La cantidad de votos es {contador_de_votos}.\n"
+            f"el candidato más votado es {candidato_mas_votado}.\n"
+            f"el candidadto menos votados es {candidato_menos_votado}, y su edad es {edad_del_candidato_menos_votado}.\n"
+            f"el promedio de edad entre los candidatos es {promedio_edad}")
         alert("Titulo", mensaje)
 
             

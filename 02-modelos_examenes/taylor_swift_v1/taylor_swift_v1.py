@@ -28,10 +28,14 @@ import warnings
 #? Para ello, se solicitará al usuario la siguiente información al momento de 
 #? comprar cada entrada:
 '''
-NOMBRE = '' # Completa tu nombre completo solo en esa variable
+NOMBRE = 'AGUS GRANDON' # Completa tu nombre completo solo en esa variable
 '''
-#?################ ENUNCIADO #################
-Para ello deberas programar el boton "Cargar Ventas" para poder cargar 10 ventas.
+Se nos ha solicitado desarrollar una aplicación para llevar registro de las entradas vendidas en el Estadio River 
+Plate, para el concierto de Taylor Swift. Para ello, se solicitará al usuario la siguiente información al momento de 
+comprar cada entrada:
+
+Al presionar el voton se debera pedir la carga de los siguientes datos, hasta que el usuario lo desee:
+
 Los datos que deberas pedir para los ventas son:
     * Nombre del comprador
     * Edad (no menor a 16)
@@ -51,34 +55,23 @@ el medio de pago y su precio correspondiente.
 Las entradas adquiridas con tarjeta de crédito tendrán un 20% de descuento sobre el 
 precio de la entrada, mientras que las adquiridas con tarjeta de débito un 15%. 
 
+Al finalizar la carga, el programa debera mostrar los siguientes informes:
 
-B)  Al presionar el boton "Mostrar Informe 1" se deberan listar las ventas (todos sus datos)
-        y su posicion en la lista (por terminal).
-        Adicionalmente mostrar el informe del punto C.
-
-#!################ ACLARACION IMPORTANTE #################
-Del punto C SOLO debera realizar DOS informes.
-Para determinar que informe hacer, tenga en cuenta lo siguiente:
-
-    1- Tome el ultimo numero de su DNI Personal (Ej 4) y realiza ese informe (Ej, Realizar informe 4)
-    2- Tome el ultimo numero de su DNI Personal (Ej 4), y restarselo al numero 9 (Ej 9-4 = 5). 
-        Realiza el informe correspondiente al numero obtenido.
-
-EL RESTO DE LOS INFORMES LOS PUEDE IGNORAR. 
-C) Al presionar el boton "Mostrar Informe 2"
-    #! 0) - Cantidad total de dinero recaudado por las ventas de entradas.
-    #! 1) - Cantidad de entradas vendidas para cada tipo.
-    #! 2) - Promedio de edad de las personas que compraron ubicación en Platea.
-    #! 3) - Nombre de la persona de mayor edad que compró una entrada de platea.
-    #! 4) - Porcentaje de entradas vendidas de tipo "General"
-    #! 5) - Porcentaje de entradas vendidas de tipo "Campo"
-    #! 6) - Nombre de la/s persona/s de menor edad, de género Femenino que compro una 
-    #!       entrada Platea.
-    #! 7) - Nombre de la/s persona/s de mayor edad, de género Masculino que compro una 
-    #!       entrada general.
-    #! 8) - Tipo de entradas más vendidas.
-    #! 9) - Tipo de entradas menos vendidas.
+    #! 1) - Determina el género más frecuente entre las personas que compraron entradas de tipo "Campo".
+    #! 2) - Determina cuántas personas compraron entradas de tipo "General" pagando con tarjeta 
+    #!          de crédito y su edad promedio.
+    #! 3) - Calcula el porcentaje de personas que compraron entradas de tipo "Platea" y 
+    #!          pagaron con tarjeta de débito  respecto al total de personas en la lista.
+    #! 4) - Cuál es el total de descuentos en pesos que aplicó la empresa, pero solo de 
+    #!          los aplicados a tarjetas de crédito
+    #! 5) - El nombre y la edad de la persona que pagó el precio más alto por una entrada de 
+    #!          tipo "General" y pagó con tarjeta de débito (Solo la primera que se encuentre)
+    #! 6) - La cantidad de personas que compraron entradas de tipo "Platea" y cuya 
+    #!          edad es un número primo.
+    #! 7) - Calcula el monto total recaudado por la venta de entradas de tipo "Platea" y 
+    #!          pagadas con tarjeta de debito por personas cuyas edades son múltiplos de 6.
 '''
+
 
 class App(customtkinter.CTk):
     
