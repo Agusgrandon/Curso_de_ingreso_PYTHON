@@ -74,6 +74,10 @@ class App(customtkinter.CTk):
         campo = 25000
         platea = 30000
         descuento = 0
+        contador_genero_femenino = 0
+        contador_genero_masculino = 0
+        contador_genero_otro = 0
+    
 
         while desea_continuar == True :
             nombre = prompt("Titulo", "ingresa tu nombre")
@@ -99,6 +103,8 @@ class App(customtkinter.CTk):
             desea_continuar = question("titulo","desea continuar?")
             
             match tipo_de_entrada :
+                #    #! 2) - Determina cuántas personas compraron entradas de tipo "General" pagando con tarjeta 
+    #!          de crédito y su edad promedio.
                 case "general":
                     if medio_de_pago == "debito" :
                         descuento = 15
@@ -120,12 +126,29 @@ class App(customtkinter.CTk):
                     elif medio_de_pago == "credito" :
                         descuento = 20
                         descuento_a_realizar = (descuento * platea) / 100
+            ##! 1) - Determina el género más frecuente entre las personas que compraron entradas de tipo "Campo".
+            if genero == "femenino" and tipo_de_entrada == "campo":
+                contador_genero_femenino += 1
+            elif genero == "masculino" and tipo_de_entrada == "campo":
+                contador_genero_masculino += 1
+            else:
+                contador_genero_otro += 1
+             
+
+        if contador_genero_femenino > contador_genero_masculino and contador_genero_femenino > contador_genero_otro:
+            genero_mas_frecuente = "femenino"
+        elif contador_genero_masculino > contador_genero_otro:
+            genero_mas_frecuente = "masculino"
+        else:
+            genero_mas_frecuente = "otro"
+
 
 
 
         descuento_hecho = general - descuento_a_realizar 
 
-        mensaje = f"el precio final es {descuento_hecho}"
+        mensaje = (f"el precio final es {descuento_hecho}.\n"
+                   f"el genero mas frecuente es {genero_mas_frecuente}")
         alert("titulo", mensaje)
 
    

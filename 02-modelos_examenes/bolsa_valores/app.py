@@ -107,7 +107,7 @@ class App(customtkinter.CTk):
                 contador_CEDEAR += 1 
                 ##! 3) - Cantidad de usuarios que no compraron CEDEAR 
                 if cantidad_de_instrumento == 0 :
-                     acumulador_CEDEAR += 1
+                     acumulador_CEDEAR += cantidad_de_instrumento
             elif tipo_de_instrumento == "BONOS" :
                 contador_BONOS += 1
             else:
