@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math #aca lo importe
 
 '''
 nombre: agus 
@@ -56,8 +57,10 @@ class App(customtkinter.CTk):
         toneladas_t = float(toneladas)
 
         camion = toneladas_t / 3500
+        redondeo = math.ceil(camion) 
+        #La función Math. ceil() devuelve el entero mayor o igual más próximo a un número dado. 
 
-        mensaje = f"Se necesitan {camion} camiones para transportar {toneladas_t} toneladas"
+        mensaje = f"Se necesitan {redondeo} camiones para transportar {toneladas_t} toneladas"
 
         alert("Titulo", mensaje)
 
