@@ -57,10 +57,10 @@ class App(customtkinter.CTk):
         toneladas_t = float(toneladas)
 
         camion = toneladas_t / 3500
-        redondeo = math.ceil(camion) 
+        numero_entero = math.ceil(camion) 
         #La función Math. ceil() devuelve el entero mayor o igual más próximo a un número dado. 
 
-        mensaje = f"Se necesitan {redondeo} camiones para transportar {toneladas_t} toneladas"
+        mensaje = f"Se necesitan {numero_entero} camiones para transportar {toneladas_t} toneladas"
 
         alert("Titulo", mensaje)
 
