@@ -68,9 +68,6 @@ class App(customtkinter.CTk):
 
         acumulador_ruleta = 0
 
- 
-
-        
 
         while desea_continuar == True:
              
@@ -116,15 +113,16 @@ class App(customtkinter.CTk):
              contador_jugadores += 1
 
        
-                
-
         #3Porcentaje de personas que jugaron en el Tragamonedas.
-        total_jugadores = contador_tragamonedas + contador_poker + contador_ruleta
-        porcentaje_de_personas_que_jugaron_al_tragamonedas =  (contador_tragamonedas * 100) / total_jugadores
+        porcentaje_de_personas_que_jugaron_al_tragamonedas =  (contador_tragamonedas * 100) / contador_jugadores
 
         #2 Promedio de dinero ganado en Ruleta.  
         #esto si no se ingresa nada me da error
-        promedio_de_ruleta = acumulador_ruleta / contador_ruleta
+        if contador_ruleta > 0:
+           promedio_de_ruleta = acumulador_ruleta / contador_ruleta
+        else:
+           promedio_de_ruleta = "no se ingresaron jugadores de ruleta"
+
 
 
         #punto cuatro comparacion:
