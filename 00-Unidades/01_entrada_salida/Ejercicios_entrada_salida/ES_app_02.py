@@ -121,7 +121,7 @@ class App(customtkinter.CTk):
         if contador_ruleta > 0:
            promedio_de_ruleta = acumulador_ruleta / contador_ruleta
         else:
-           promedio_de_ruleta = "no se ingresaron jugadores de ruleta"
+           promedio_de_ruleta = "no se ingresaron jugadores de ruletas"
 
 
 
