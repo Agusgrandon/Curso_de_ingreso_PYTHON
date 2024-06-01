@@ -29,7 +29,15 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        lista = self.lista_datos
+        numero_maximo = float("-inf")      
+
+        for elemento in lista:
+            if elemento == 0 or elemento > numero_maximo:
+                numero_maximo = elemento            
+        
+        mensaje = f"el numero maximo es {numero_maximo}"
+        alert("titulo", mensaje)
     
 if __name__ == "__main__":
     app = App()

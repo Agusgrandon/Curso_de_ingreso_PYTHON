@@ -48,7 +48,10 @@ class App(customtkinter.CTk):
 
 
     def btn_ingresar_on_click(self):
-        pass
+        edad = self.lista_edades
+        genero = self.lista_generos
+
+        
 
     def btn_informar_on_click(self):
         pass

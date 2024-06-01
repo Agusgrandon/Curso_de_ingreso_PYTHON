@@ -26,7 +26,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for numeros in range(5, 0, -1):
+            mensaje = f"los numeros son: {numeros}"
+            alert("titulo", mensaje)
        
             
 

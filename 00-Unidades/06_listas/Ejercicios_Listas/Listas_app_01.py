@@ -14,6 +14,15 @@ Enunciado:
 Al presionar el botón  'Mostrar', se deberán mostrar los números 
 almacenados en la lista_datos utilizando Dialog Alert para informar cada elemento.
 (Utilizar 'for in range' y 'for in')
+
+for i in range(lista):
+Este código itera sobre los índices de una lista, utilizando la función range() para generar una secuencia de
+números que van desde 0 hasta el tamaño de la lista menos uno. Luego, en cada iteración, accedes a los 
+elementos de la lista utilizando el índice i. 
+
+for elemento in lista:
+Este código itera directamente sobre los elementos de la lista, sin necesidad de usar índices. 
+En cada iteración, elemento tomará el valor de uno de los elementos de la lista. 
 '''
 
 class App(customtkinter.CTk):
@@ -30,7 +39,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+      lista = self.lista_datos
+
+      for i in range(len(lista)):
+          print(i)
+        
+       
+
+        
+
+
         
         
     

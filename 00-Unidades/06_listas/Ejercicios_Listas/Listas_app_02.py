@@ -27,7 +27,22 @@ class App(customtkinter.CTk):
         self.lista_datos = [2,3,5,7,11,13]
         
     def btn_calcular_on_click(self):
-        pass
+        lista = len(self.lista_datos)
+        acumulador = 0
+        contador = 0
+
+        for i in range(lista):
+            contador += 1
+            for j in range(self.lista_datos[i]):
+                acumulador += j
+          
+        if contador > 0:
+            division = acumulador / contador
+ 
+        mensaje = f"la sumatoria es {acumulador}, y el promedio es {division}"
+        alert("titulo", mensaje)
+    
+
     
 if __name__ == "__main__":
     app = App()
