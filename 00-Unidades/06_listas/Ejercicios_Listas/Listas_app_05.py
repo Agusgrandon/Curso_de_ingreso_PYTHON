@@ -49,7 +49,21 @@ class App(customtkinter.CTk):
 
 
     def btn_ingresar_on_click(self):
-        pass
+        edades = []
+        generos = []
+
+        
+        edad = input("ingresa tu edad: ")
+        edad = int(edad)
+
+        edades.append(edad)
+        print(edades)
+
+        
+        genero = input("ingresa tu genero: ")
+        generos.append(genero)
+
+
 
     def btn_informar_on_click(self):
         pass
