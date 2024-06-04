@@ -48,8 +48,35 @@ class App(customtkinter.CTk):
 
 
     def btn_ingresar_on_click(self):
-        edad = self.lista_edades
-        genero = self.lista_generos
+        edades = []
+        generos = []
+        acumulador_edad_hombres = 0
+        contador_hombres = 0
+        contador_general = 0
+        contador_mujeres = 0
+
+        for i in range(5):
+            edad = input("ingresa tu edad:  ")
+            edad = int(edad)
+            genero = input("ingresa tu genero:  ")
+            edades.append(edad)
+            generos.append(genero)
+            contador_general += 1
+            print(contador_general)
+
+            if genero == "m":
+                contador_hombres += 1
+                acumulador_edad_hombres += edad
+
+            if genero == "f" and edad >= 18:
+                contador_mujeres += 1
+
+        promedio = acumulador_edad_hombres / contador_hombres
+        porcentaje = (contador_mujeres * 100) / contador_general
+        mensaje = f"el promedio de edad es {promedio}, el porcentaje de mujeres es {porcentaje}"
+        print(mensaje) 
+
+
 
         
 

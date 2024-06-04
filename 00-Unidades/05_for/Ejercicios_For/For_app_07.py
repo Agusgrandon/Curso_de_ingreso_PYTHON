@@ -26,7 +26,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        for numero in range(1):
+            numero = input("ingresa un numero: ")
+            numero = int(numero)
+
+            if numero % 1 and numero % numero:
+                mensaje = f"el numero {numero} es primo"
+            else:
+                mensaje = f"el numero {numero} no es primo"
+
+            print(mensaje)
         
     
 if __name__ == "__main__":

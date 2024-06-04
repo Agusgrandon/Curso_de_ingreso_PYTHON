@@ -27,7 +27,20 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        contador_pares = 0
+        
+        for numero in range(0, 3):
+            numero = input("ingresa un numero")
+            numero = int(numero)
+
+            if numero % 2 == 0:
+                contador_pares += 1
+                mensaje = f"el numero {numero} es par, encontramos {contador_pares} numeros pares"
+            else:
+                mensaje = f"el numero {numero} es impar"
+
+            print(mensaje)
+
             
         
     
