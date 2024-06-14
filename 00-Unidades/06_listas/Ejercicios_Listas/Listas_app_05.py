@@ -55,11 +55,10 @@ class App(customtkinter.CTk):
         contador_hombres = 0
         contador_general = 0
         contador_mujeres = 0
-        bandera = False
+        bandera_minima = False
+        bandera_maxima = False
 
-        
-
-        for i in range(5):
+        for i in range(2):
             edad = input("Ingresa tu edad: ")
             edad = int(edad)
             while edad < 15 or edad > 90:
@@ -70,7 +69,7 @@ class App(customtkinter.CTk):
                 genero = input("Error, reingresa tu genero:  ")
 
             edades.append(edad)
-            generos.append(generos)
+            generos.append(genero)
             contador_general += 1
 
             if genero == "m":
@@ -80,20 +79,20 @@ class App(customtkinter.CTk):
                 contador_mujeres += 1
 
 
-        edad_minima = edades[0]
-        edad_maxima = edades[0]
         for i in range(len(edades)):
-            if bandera == False or edades[i] < edad_minima:
+            if bandera_minima == False or edades[i] < edad_minima:
                 edad_minima = edades[i]
-                #genero_minimo = generos[i]
-                bandera = True
-            if edades[i] > edad_maxima:
+                genero_minimo = generos[i]
+                bandera_minima = True
+            if bandera_maxima == False or edades[i] > edad_maxima:
                 edad_maxima = edades[i]
-                #genero_maximo = generos[i]
+                genero_maximo = generos[i]
+                bandera_maxima
+                
 
         promedio_edad_hombres = acumulador_edad_hombres / contador_hombres
         porcentaje = (contador_mujeres * 100) / contador_general
-        mensaje = f"el promedio de edad es {promedio_edad_hombres}, el porcentaje de mujeres es {porcentaje}, la edad minima es {edad_minima}, y la edad max es {edad_maxima}"
+        mensaje = f"el promedio de edad es {promedio_edad_hombres}, el porcentaje de mujeres es {porcentaje}, la edad minima es {edad_minima} y {genero_minimo}, y la edad max es {edad_maxima} y su genero es {genero_maximo}"
         print(mensaje) 
 
 
