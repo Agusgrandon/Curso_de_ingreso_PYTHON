@@ -26,6 +26,7 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
         
         for numero in range(1):
             numero = input("ingresa un numero: ")
@@ -37,7 +38,21 @@ class App(customtkinter.CTk):
                 mensaje = f"el numero {numero} no es primo"
 
             print(mensaje)
+
+        numero = input("Ingresa un numero")
+        numero = int
+        es_primo = True
+
+        for i in range(2, numero):
+            if numero % i == 0:
+                es_primo = False
+                break
+
         
+        if es_primo:
+            print(f"{numero} es un numero primo")
+        else:
+            print(f"{numero} no es un numero primo")
     
 if __name__ == "__main__":
     app = App()

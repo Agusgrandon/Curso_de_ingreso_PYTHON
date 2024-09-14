@@ -51,6 +51,7 @@ class App(customtkinter.CTk):
     def btn_ingresar_on_click(self):
         edades = []
         generos = []
+
         acumulador_edad_hombres = 0
         contador_hombres = 0
         contador_general = 0
@@ -94,6 +95,20 @@ class App(customtkinter.CTk):
         porcentaje = (contador_mujeres * 100) / contador_general
         mensaje = f"el promedio de edad es {promedio_edad_hombres}, el porcentaje de mujeres es {porcentaje}, la edad minima es {edad_minima} y {genero_minimo}, y la edad max es {edad_maxima} y su genero es {genero_maximo}"
         print(mensaje) 
+
+
+
+        
+        edad = input("ingresa tu edad: ")
+        edad = int(edad)
+
+        edades.append(edad)
+        print(edades)
+
+        
+        genero = input("ingresa tu genero: ")
+        generos.append(genero)
+
 
 
     def btn_informar_on_click(self):
