@@ -75,10 +75,7 @@ class App(customtkinter.CTk):
         porcentaje = (contador_mujeres * 100) / contador_general
         mensaje = f"el promedio de edad es {promedio}, el porcentaje de mujeres es {porcentaje}"
         print(mensaje) 
-
-
-
-        
+   
 
     def btn_informar_on_click(self):
         pass

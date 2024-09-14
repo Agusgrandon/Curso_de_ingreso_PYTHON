@@ -37,20 +37,11 @@ class App(customtkinter.CTk):
 
         self.lista_datos = [2,3,5,7,11,13]
 
-
     def btn_mostrar_on_click(self):
-      lista = self.lista_datos
+        lista = [2,3,5,7,11,13]
 
-      for i in range(len(lista)):
-          print(i)
-        
-       
-
-        
-
-
-        
-        
+        for numeros in lista:
+            print(numeros)   
     
 if __name__ == "__main__":
     app = App()
